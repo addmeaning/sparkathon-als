@@ -1,2 +1,10 @@
 .idea
 target
+src/main/resources/small/movies.csv
+src/main/resources/small/ratings.csv
+src/main/resources/full/movies.csv
+src/main/resources/full/ratings.csv
+project/project/
+spark-warehouse/
+src/test/
+als-model
