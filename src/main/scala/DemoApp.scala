@@ -48,7 +48,7 @@ object DemoApp extends SparkApp {
       .agg(first("title"))
   }
 
-  recommend(10, model, MoviesHelper.getFullMovies).where('userId === 777).show()
+  recommend(10, model, DatasetHelper.getSmallMovies).where('userId === 777).show()
 
 
   val pipeline = new Pipeline("als").setStages(Array(model))
