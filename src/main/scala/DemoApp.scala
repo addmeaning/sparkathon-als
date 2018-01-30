@@ -15,15 +15,16 @@ object DemoApp extends SparkApp {
 
   // Build the recommendation model using ALS on the training data
   val als = new ALS()
-    .setMaxIter(5)
-    .setRegParam(0.01)
+    .setMaxIter(10)
+    .setRegParam(0.2)
+    .setRank(100)
+    .setAlpha(0.1)
     .setColdStartStrategy("drop")
     .setUserCol("userId")
     .setItemCol("movieId")
     .setRatingCol("rating")
   val model: ALSModel = als.fit(training)
-
-
+  model.recommendForAllUsers(10)
   val predictions = model.transform(test)
 
   val evaluator = new RegressionEvaluator()
